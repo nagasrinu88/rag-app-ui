@@ -1,103 +1,120 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-20 text-center">
+        <h1 className="text-5xl font-bold text-gray-t800 mb-6">
+          Welcome to <span className="text-indigo-600">AWS Sage</span>
+        </h1>
+        <p className="text-xl text-gray-t600 max-w-2xl mx-auto mb-10">
+          The purpose of AWS Sage is to act as an intelligent query-answering bot that provides users with precise, context-aware insights derived from the AWS Well-Architected Framework.
+        </p>
+        <Link
+          href="/chat"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-8 rounded-lg transition duration-300"
+        >
+          Start Chatting →
+        </Link>
+      </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Features Section */}
+      <section className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-center text-gray-t800 mb-12">
+          What I Can Help With
+        </h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            {
+              icon: '💡',
+              title: 'Instant Answers',
+              description: 'Get quick responses to your questions 24/7'
+            },
+            {
+              icon: '🔍',
+              title: 'Deep Knowledge',
+              description: 'Access to comprehensive information about [your domain]'
+            },
+            {
+              icon: '⚡',
+              title: 'Fast Processing',
+              description: 'Quick analysis of complex queries'
+            }
+          ].map((feature, index) => (
+            <div key={index} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-4xl mb-4">{feature.icon}</div>
+              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+              <p className="text-gray-t600">{feature.description}</p>
+            </div>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Author & Tech Stack */}
+      <section className="container mx-auto px-4 py-16 bg-white rounded-t-3xl">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-gray-t800 mb-12">
+            About This Project
+          </h2>
+
+          <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
+            <div className="flex-shrink-0">
+              <div className="w-32 h-32 rounded-full bg-indigo-100 flex items-center justify-center text-4xl">
+                👨‍💻
+              </div>
+            </div>
+            <div>
+              <h3 className="text-2xl font-semibold mb-2">Author Details</h3>
+              <p className="text-gray-t600 mb-4">
+                Created by Naga Srinivas - Java Architect. Connect with me on:
+              </p>
+              <div className="flex gap-4">
+                <a href="https://github.com/nagasrinu88" className="text-indigo-600 hover:text-indigo-800">
+                  GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/naga-srinivas-kapusetti/" className="text-indigo-600 hover:text-indigo-800">
+                  LinkedIn
+                </a>
+                <a href="https://nagasrinu88.github.io/" className="text-indigo-600 hover:text-indigo-800">
+                  Website
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-2xl font-semibold mb-4">Technology Stack</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {[
+                'Next.js',
+                'React',
+                'Tailwind CSS',
+                'Node.js',
+                'Gemini AI',
+                'Pinecone'
+              ].map((tech, index) => (
+                <div key={index} className="bg-gray-50 px-4 py-3 rounded-lg">
+                  {tech}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <a
+              href="https://github.com/nagasrinu88/rag-app-ui"
+              className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800"
+            >
+              View Source Code on GitHub
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
