@@ -7,10 +7,10 @@ export default function Home() {
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20 text-center">
         <h1 className="text-5xl font-bold text-gray-t800 mb-6">
-          Welcome to <span className="text-indigo-600">AWS Sage</span>
+          Welcome to <span className="text-indigo-600">AWS Knowledge Bot</span>
         </h1>
         <p className="text-xl text-gray-t600 max-w-2xl mx-auto mb-10">
-          The purpose of AWS Sage is to act as an intelligent query-answering bot that provides users with precise, context-aware insights derived from the AWS Well-Architected Framework.
+          The purpose of AWS Knowledge Bot is to act as an intelligent query-answering bot that provides users with precise, context-aware insights derived from the AWS Well-Architected Framework.
         </p>
         <Link
           href="/chat"
@@ -62,7 +62,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
             <div className="flex-shrink-0">
               <div className="w-32 h-32 rounded-full bg-indigo-100 flex items-center justify-center text-4xl">
-                👨‍💻
+                <Image src="/profile.png" alt="Naga Srinivas" width={128} height={128} className="rounded-full" />
               </div>
             </div>
             <div>
