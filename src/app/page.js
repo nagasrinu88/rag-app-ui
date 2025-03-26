@@ -71,13 +71,13 @@ export default function Home() {
                 Created by Naga Srinivas - Java Architect. Connect with me on:
               </p>
               <div className="flex gap-4">
-                <a href="https://github.com/nagasrinu88" className="text-indigo-600 hover:text-indigo-800">
+                <a href="https://github.com/nagasrinu88" target="_blank" className="text-indigo-600 hover:text-indigo-800">
                   GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/naga-srinivas-kapusetti/" className="text-indigo-600 hover:text-indigo-800">
+                <a href="https://www.linkedin.com/in/naga-srinivas-kapusetti/" target="_blank" className="text-indigo-600 hover:text-indigo-800">
                   LinkedIn
                 </a>
-                <a href="https://nagasrinu88.github.io/" className="text-indigo-600 hover:text-indigo-800">
+                <a href="https://nagasrinu88.github.io/" target="_blank" className="text-indigo-600 hover:text-indigo-800">
                   Website
                 </a>
               </div>
@@ -96,7 +96,9 @@ export default function Home() {
                 'Pinecone'
               ].map((tech, index) => (
                 <div key={index} className="bg-gray-50 px-4 py-3 rounded-lg">
-                  {tech}
+                  <Link href={`https://www.google.com/search?q=${tech}`} target="_blank" className="text-indigo-600 hover:text-indigo-800">
+                    {tech}
+                  </Link>
                 </div>
               ))}
             </div>

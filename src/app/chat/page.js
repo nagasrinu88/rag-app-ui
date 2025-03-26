@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react'
 import ReactMarkdown from 'react-markdown';
 
@@ -7,19 +8,26 @@ export default function ChatPage() {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: 'Hello! I\'m your AI assistant. Ask me anything about your documents.',
+      content: 'Hello! I\'m your AI assistant. Ask me anything about AWS.',
     },
   ])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const messagesEndRef = useRef(null)
+  const messagesEndRef = useRef(null);
+
+  useEffect(() => {
+    const storedMessages = sessionStorage.getItem('messages');
+    if (storedMessages) {
+      setMessages(JSON.parse(storedMessages));
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!input.trim()) return
 
     // Add user message
-    setMessages(prev => [...prev, { role: 'user', content: input }])
+    addMessage('user', input)
     setInput('')
     setIsLoading(true)
 
@@ -31,8 +39,7 @@ export default function ChatPage() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ query: input })
-      })
-      //   const response = await fetch('/api/rag', { method: 'POST', body: JSON.stringify({ query: input }) })
+      });
       const data = await response.json();
       let reply = data.response;
       if (response.status >= 200 && response.status < 300) {
@@ -40,12 +47,20 @@ export default function ChatPage() {
       } else {
         reply = 'Sorry, there was an error processing your request. Please try again later.';
       }
-      setMessages(prev => [...prev, { role: 'assistant', content: reply }])
+      addMessage('assistant', reply)
     } catch (error) {
-      setMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, there was an error processing your request.' }]);
+      addMessage('assistant', 'Sorry, there was an error processing your request.')
     } finally {
       setIsLoading(false)
     }
+  }
+
+  const addMessage = (role, content) => {
+    setMessages(prev => {
+      let msgs = [...prev, { role, content }];
+      sessionStorage.setItem('messages', JSON.stringify(msgs));
+      return msgs;
+    });
   }
 
   // Auto-scroll to bottom of messages
@@ -56,8 +71,11 @@ export default function ChatPage() {
   return (
     <div className="flex flex-col h-screen mx-auto">
       {/* Header */}
-      <header className="bg-blue-500 border-b border-gray-200 p-4">
-        <h1 className="text-xl font-semibold">RAG Bot</h1>
+      <header className="bg-blue-200 border-b border-blue-400 p-4">
+        <span className="text-xl font-semibold">AWS Bot</span>
+        <Link href="/" className="text-blue-600 hover:underline mr-4 float-right">
+          ← Back
+        </Link>
       </header>
 
       {/* Messages container */}
