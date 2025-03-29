@@ -5,7 +5,7 @@ export async function POST(request) {
   try {
     // Parse the request body
     const { query } = await request.json()
-    
+
     if (!query) {
       return NextResponse.json(
         { error: 'Query is required' },
@@ -20,14 +20,14 @@ export async function POST(request) {
       params: {},
       body: { query }
     });
-    console.log("Signature is", signature);
-    const response = await fetch(`${process.env.API_BASE_URL}/query`, {
+    // console.log("Signature is", signature);
+    const response = await fetch(`${process.env.API_BASE_URL}/api/v0/query`, {
       method: 'POST',
       headers: {
         'x-api-key': process.env.API_KEY,
         'Content-Type': 'application/json',
         'x-signature': signature,
-        'x-timestamp': timestamp
+        'x-timestamp': timestamp,
       },
       body: JSON.stringify({ query })
       // body: { query }
@@ -36,19 +36,21 @@ export async function POST(request) {
     if (!response.ok) {
       return NextResponse.json(
         { error: 'Failed to fetch data from the server' },
-        { status: response.status }
+        { headers: response.headers, status: response.status }
       )
     }
 
     const data = await response.json();
-    
-    return NextResponse.json(data)
-    
+
+    return NextResponse.json(data, {
+      headers: response.headers
+    })
+
   } catch (error) {
     console.error('RAG API error:', error)
     return NextResponse.json(
       { error: 'An error occurred while processing your request' },
-      { status: 500 }
+      { headers: response.headers, status: 500 }
     )
   }
 }

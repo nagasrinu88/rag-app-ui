@@ -14,9 +14,9 @@ export default function Home() {
         </p>
         <Link
           href="/chat"
-          className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-8 rounded-lg transition duration-300"
+          className="bg-blue-500 hover:bg-blue-400 text-white font-medium py-3 px-8 rounded-lg transition duration-300"
         >
-          Start Chatting →
+          Start →
         </Link>
       </section>
 
@@ -30,12 +30,12 @@ export default function Home() {
             {
               icon: '💡',
               title: 'Instant Answers',
-              description: 'Get quick responses to your questions 24/7'
+              description: 'Get quick responses to your questions'
             },
             {
               icon: '🔍',
               title: 'Deep Knowledge',
-              description: 'Access to comprehensive information about [your domain]'
+              description: 'Access to comprehensive information about AWS Cloud'
             },
             {
               icon: '⚡',

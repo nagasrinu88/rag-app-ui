@@ -1,0 +1,17 @@
+:root {
+    --color-primary: #3b82f6;
+    --color-primary-dark: #2563eb;
+    --color-primary-light: #93c5fd;
+    --color-background: #f9fafb;
+    --color-foreground: #111827;
+    --color-link: #2e28e3;
+    --color-user-message: #3b82f6;
+    --color-user-text: #ffffff;
+    --color-assistant-message: #d2d2d203;
+    --color-assistant-text: #dfdfdf;
+    --color-input-background: #1f2937;
+    --color-input-border: #4b5563;
+    --color-input-text: #ffffff;
+    --color-button-text: #ffffff;
+    --color-muted: #9ca3af;
+  }
