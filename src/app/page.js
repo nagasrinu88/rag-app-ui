@@ -55,10 +55,14 @@ export default function Home() {
       {/* Author & Tech Stack */}
       <section className="container mx-auto px-4 py-16 bg-white rounded-t-3xl">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-t800 mb-12">
+          <h2 className="text-3xl font-bold text-center text-gray-t800 mb-6">
             About This Project
           </h2>
+          <div className="mb-4">
+            This AI Bot has been developed to leverage the capabilities of AI tools and provide valuable insights into AWS-related topics. It currently integrates the AWS Well-Architected Guide, enabling users to query and explore best practices for building secure, efficient, and reliable architectures on AWS.
 
+            <p className="mt-2"><b>Future Plans</b> To enhance its functionality, additional AWS-related documentation will be progressively incorporated. This expansion aims to create a comprehensive resource for learning and implementing AWS best practices effectively.</p>
+          </div>
           <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
             <div className="flex-shrink-0">
               <div className="w-32 h-32 rounded-full bg-indigo-100 flex items-center justify-center text-4xl">

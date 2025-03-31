@@ -115,7 +115,7 @@ export default function ChatPage() {
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'} space-x-2`}
+              className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'} my-4`}
             >
               <div
                 className={`max-w-3xl rounded-lg px-4 py-2 ${message.role === 'user'
